@@ -84,16 +84,18 @@ public class Delivery  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(cookFinished.get???()).ifPresent(delivery->{
+        repository().findById(cookFinished.getOrderId()).ifPresent(delivery->{
             
-            delivery // do something
+            delivery.setOrderId(cookFinished.getOrderId());
+            delivery.setStoreId(cookFinished.getStoreId());
+            delivery.setAddress(cookFinished.getAddress());
+            delivery.setStatus("delivery");
             repository().save(delivery);
 
 
          });
-        */
 
         
     }

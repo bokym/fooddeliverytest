@@ -90,6 +90,7 @@ public class Order  {
         orderPlaced.publishAfterCommit();
 
     }
+    
     @PrePersist
     public void onPrePersist(){
     }
@@ -110,8 +111,11 @@ public class Order  {
 
 
     public void cancel(){
+
         OrderCanceled orderCanceled = new OrderCanceled(this);
-        orderCanceled.publishAfterCommit();
+        if(orderCanceled.getStatus().equals("orderPlaced") || orderCanceled.getStatus().equals("accepted")) {
+            orderCanceled.publishAfterCommit();
+        }
 
     }
 
