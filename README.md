@@ -102,3 +102,11 @@ Saga패턴으로 ~/orders 뒤에 나열된 정보들이 store에서 확인 가�
 ![5](https://user-images.githubusercontent.com/125227422/219309450-2083dd28-0da1-4111-9bb7-39c3cd867dde.png)
 
 ## Autoscale (HPA)
+### 부하 전
+![6](https://user-images.githubusercontent.com/125227422/219312423-6ca4b9fa-6496-4300-bdf4-e029f3b02aed.png)
+
+### 부하 후
+![7](https://user-images.githubusercontent.com/125227422/219315427-c03f057c-001e-44a6-997c-ed45bcc52629.png)
+
+### pod 
+![8](https://user-images.githubusercontent.com/125227422/219315610-c290c386-b368-44e5-8232-a8d44da2f05e.png)
