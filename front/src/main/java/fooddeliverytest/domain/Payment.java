@@ -83,16 +83,15 @@ public class Payment  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(rejected.get???()).ifPresent(payment->{
+        repository().findById(rejected.getOrderId()).ifPresent(payment->{
             
-            payment // do something
+            payment.setStatus(rejected.getStatus());
             repository().save(payment);
 
 
          });
-        */
 
         
     }
@@ -104,16 +103,15 @@ public class Payment  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(orderCanceled.get???()).ifPresent(payment->{
+        repository().findById(orderCanceled.getId()).ifPresent(payment->{
             
-            payment // do something
+            payment.setStatus(orderCanceled.getStatus());
             repository().save(payment);
 
 
          });
-        */
 
         
     }

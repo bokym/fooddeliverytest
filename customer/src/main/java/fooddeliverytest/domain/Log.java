@@ -53,16 +53,15 @@ public class Log  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(accepted.get???()).ifPresent(log->{
+        repository().findById(accepted.getOrderId()).ifPresent(log->{
             
-            log // do something
+            log.setMessage(accepted.getStatus());
             repository().save(log);
 
 
          });
-        */
 
         
     }
@@ -74,16 +73,15 @@ public class Log  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(rejected.get???()).ifPresent(log->{
+        repository().findById(rejected.getOrderId()).ifPresent(log->{
             
-            log // do something
+            log.setMessage(rejected.getStatus());
             repository().save(log);
 
 
          });
-        */
 
         
     }
@@ -95,16 +93,15 @@ public class Log  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(orderPlaced.get???()).ifPresent(log->{
+        repository().findById(orderPlaced.getId()).ifPresent(log->{
             
-            log // do something
+            log.setMessage(orderPlaced.getStatus());
             repository().save(log);
 
 
          });
-        */
 
         
     }
@@ -116,16 +113,15 @@ public class Log  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(deliveryStarted.get???()).ifPresent(log->{
+        repository().findById(deliveryStarted.getOrderId()).ifPresent(log->{
             
-            log // do something
+            log.setMessage(deliveryStarted.getStatus());
             repository().save(log);
 
 
          });
-        */
 
         
     }

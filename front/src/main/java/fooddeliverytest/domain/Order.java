@@ -94,11 +94,13 @@ public class Order  {
     @PostUpdate
     public void onPostUpdate(){
 
-
         OrderCanceled orderCanceled = new OrderCanceled(this);
-        orderCanceled.publishAfterCommit();
+        if(!orderCanceled.getStatus().equals("startcook")) {
+            orderCanceled.publishAfterCommit();
+        }
 
     }
+    
     @PrePersist
     public void onPrePersist(){
     }
@@ -127,16 +129,15 @@ public class Order  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(accepted.get???()).ifPresent(order->{
+        repository().findById(accepted.getOrderId()).ifPresent(order->{
             
-            order // do something
+            order.setStatus(accepted.getStatus());
             repository().save(order);
 
 
          });
-        */
 
         
     }
@@ -148,16 +149,15 @@ public class Order  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(rejected.get???()).ifPresent(order->{
+        repository().findById(rejected.getOrderId()).ifPresent(order->{
             
-            order // do something
+            order.setStatus(rejected.getStatus());
             repository().save(order);
 
 
          });
-        */
 
         
     }
@@ -169,16 +169,15 @@ public class Order  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(cookStarted.get???()).ifPresent(order->{
+        repository().findById(cookStarted.getOrderId()).ifPresent(order->{
             
-            order // do something
+            order.setStatus(cookStarted.getStatus());
             repository().save(order);
 
 
          });
-        */
 
         
     }
