@@ -96,9 +96,9 @@ Saga패턴으로 ~/orders 뒤에 나열된 정보들이 store에서 확인 가�
 # Microservice Orchestration
 
 ## Deploy to EKS Cluster
-![4](https://user-images.githubusercontent.com/125227422/219307830-61ee6c76-f5a7-454c-b783-465ab7dbd849.png)
+![4](https://user-images.githubusercontent.com/125227422/219309360-48e6154c-20e2-4954-b76e-c368b9c11e51.png)
 
 ## Gateway & Service Router 설치
-![5](https://user-images.githubusercontent.com/125227422/219308026-27b0620e-0dd6-4356-8858-959fcc1a2440.png)
+![5](https://user-images.githubusercontent.com/125227422/219309450-2083dd28-0da1-4111-9bb7-39c3cd867dde.png)
 
 ## Autoscale (HPA)
