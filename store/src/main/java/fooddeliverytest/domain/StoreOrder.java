@@ -96,6 +96,7 @@ public class StoreOrder  {
         StoreOrder storeOrder = new StoreOrder();
         storeOrder.setFoodId(orderPlaced.getFoodId());
         storeOrder.setOrderId(orderPlaced.getId());
+        storeOrder.setAddress(orderPlaced.getAddress());
         storeOrder.setStatus("orderPlaced");
 
         repository().save(storeOrder);

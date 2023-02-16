@@ -94,10 +94,6 @@ public class Order  {
     @PostUpdate
     public void onPostUpdate(){
 
-        OrderCanceled orderCanceled = new OrderCanceled(this);
-        if(!orderCanceled.getStatus().equals("startcook")) {
-            orderCanceled.publishAfterCommit();
-        }
 
     }
     
@@ -110,8 +106,11 @@ public class Order  {
 
 
     public void cancel(){
+
         OrderCanceled orderCanceled = new OrderCanceled(this);
-        orderCanceled.publishAfterCommit();
+        if(orderCanceled.getStatus().equals("orderPlaced") || orderCanceled.getStatus().equals("accepted")) {
+            orderCanceled.publishAfterCommit();
+        }
 
     }
 
