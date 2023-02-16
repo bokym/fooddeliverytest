@@ -21,42 +21,6 @@ public class DeliveryController {
 
 
 
-    @RequestMapping(value = "deliveries/{id}/pick",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8")
-    public Delivery pick(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-            System.out.println("##### /delivery/pick  called #####");
-            Optional<Delivery> optionalDelivery = deliveryRepository.findById(id);
-            
-            optionalDelivery.orElseThrow(()-> new Exception("No Entity Found"));
-            Delivery delivery = optionalDelivery.get();
-            delivery.pick();
-            
-            deliveryRepository.save(delivery);
-            return delivery;
-            
-    }
-    
-
-
-
-    @RequestMapping(value = "deliveries/{id}/deliveryconfirm",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8")
-    public Delivery confirmDelivery(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-            System.out.println("##### /delivery/confirmDelivery  called #####");
-            Optional<Delivery> optionalDelivery = deliveryRepository.findById(id);
-            
-            optionalDelivery.orElseThrow(()-> new Exception("No Entity Found"));
-            Delivery delivery = optionalDelivery.get();
-            delivery.confirmDelivery();
-            
-            deliveryRepository.save(delivery);
-            return delivery;
-            
-    }
-    
-
 
 
 }
