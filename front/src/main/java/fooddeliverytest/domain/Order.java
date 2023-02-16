@@ -90,17 +90,17 @@ public class Order  {
         orderPlaced.publishAfterCommit();
 
     }
-    
-    @PostUpdate
-    public void onPostUpdate(){
-
-        OrderCanceled orderCanceled = new OrderCanceled(this);
-        if(!orderCanceled.getStatus().equals("startcook")) {
-            orderCanceled.publishAfterCommit();
-        }
+    @PrePersist
+    public void onPrePersist(){
+    }
+    @PreUpdate
+    public void onPreUpdate(){
+        // Get request from StoreOrder
+        //fooddeliverytest.external.StoreOrder storeOrder =
+        //    Application.applicationContext.getBean(fooddeliverytest.external.StoreOrderService.class)
+        //    .getStoreOrder(/** mapping value needed */);
 
     }
-    
 
     public static OrderRepository repository(){
         OrderRepository orderRepository = FrontApplication.applicationContext.getBean(OrderRepository.class);
@@ -123,15 +123,16 @@ public class Order  {
 
         */
 
-        /** Example 2:  finding and process */
+        /** Example 2:  finding and process
         
-        repository().findById(accepted.getOrderId()).ifPresent(order->{
+        repository().findById(accepted.get???()).ifPresent(order->{
             
-            order.setStatus(accepted.getStatus());
+            order // do something
             repository().save(order);
 
 
          });
+        */
 
         
     }
@@ -143,15 +144,16 @@ public class Order  {
 
         */
 
-        /** Example 2:  finding and process */
+        /** Example 2:  finding and process
         
-        repository().findById(rejected.getOrderId()).ifPresent(order->{
+        repository().findById(rejected.get???()).ifPresent(order->{
             
-            order.setStatus(rejected.getStatus());
+            order // do something
             repository().save(order);
 
 
          });
+        */
 
         
     }
@@ -163,15 +165,16 @@ public class Order  {
 
         */
 
-        /** Example 2:  finding and process */
+        /** Example 2:  finding and process
         
-        repository().findById(cookStarted.getOrderId()).ifPresent(order->{
+        repository().findById(cookStarted.get???()).ifPresent(order->{
             
-            order.setStatus(cookStarted.getStatus());
+            order // do something
             repository().save(order);
 
 
          });
+        */
 
         
     }
