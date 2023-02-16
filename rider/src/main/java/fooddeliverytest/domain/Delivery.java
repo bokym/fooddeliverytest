@@ -1,7 +1,5 @@
 package fooddeliverytest.domain;
 
-import fooddeliverytest.domain.DeliveryCompleted;
-import fooddeliverytest.domain.DeliveryStarted;
 import fooddeliverytest.RiderApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -56,19 +54,6 @@ public class Delivery  {
     
     private String status;
 
-    @PostUpdate
-    public void onPostUpdate(){
-
-
-        DeliveryCompleted deliveryCompleted = new DeliveryCompleted(this);
-        deliveryCompleted.publishAfterCommit();
-
-
-
-        DeliveryStarted deliveryStarted = new DeliveryStarted(this);
-        deliveryStarted.publishAfterCommit();
-
-    }
     @PreUpdate
     public void onPreUpdate(){
     }
@@ -80,6 +65,16 @@ public class Delivery  {
 
 
 
+    public void pick(){
+        DeliveryStarted deliveryStarted = new DeliveryStarted(this);
+        deliveryStarted.publishAfterCommit();
+
+    }
+    public void confirmDelivery(){
+        DeliveryCompleted deliveryCompleted = new DeliveryCompleted(this);
+        deliveryCompleted.publishAfterCommit();
+
+    }
 
     public static void deliveryInfoTransfer(CookFinished cookFinished){
 
