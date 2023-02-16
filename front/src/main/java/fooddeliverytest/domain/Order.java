@@ -1,7 +1,6 @@
 package fooddeliverytest.domain;
 
 import fooddeliverytest.domain.OrderPlaced;
-import fooddeliverytest.domain.OrderCanceled;
 import fooddeliverytest.FrontApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -91,6 +90,7 @@ public class Order  {
         orderPlaced.publishAfterCommit();
 
     }
+    
     @PostUpdate
     public void onPostUpdate(){
 
@@ -101,17 +101,6 @@ public class Order  {
 
     }
     
-    @PrePersist
-    public void onPrePersist(){
-    }
-    @PreUpdate
-    public void onPreUpdate(){
-        // Get request from StoreOrder
-        //fooddeliverytest.external.StoreOrder storeOrder =
-        //    Application.applicationContext.getBean(fooddeliverytest.external.StoreOrderService.class)
-        //    .getStoreOrder(/** mapping value needed */);
-
-    }
 
     public static OrderRepository repository(){
         OrderRepository orderRepository = FrontApplication.applicationContext.getBean(OrderRepository.class);
@@ -120,6 +109,11 @@ public class Order  {
 
 
 
+    public void cancel(){
+        OrderCanceled orderCanceled = new OrderCanceled(this);
+        orderCanceled.publishAfterCommit();
+
+    }
 
     public static void updateStatus(Accepted accepted){
 
