@@ -1,7 +1,6 @@
 package fooddeliverytest.domain;
 
 import fooddeliverytest.domain.OrderPlaced;
-import fooddeliverytest.domain.OrderCanceled;
 import fooddeliverytest.FrontApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -91,14 +90,6 @@ public class Order  {
         orderPlaced.publishAfterCommit();
 
     }
-    @PostUpdate
-    public void onPostUpdate(){
-
-
-        OrderCanceled orderCanceled = new OrderCanceled(this);
-        orderCanceled.publishAfterCommit();
-
-    }
     @PrePersist
     public void onPrePersist(){
     }
@@ -118,6 +109,11 @@ public class Order  {
 
 
 
+    public void cancel(){
+        OrderCanceled orderCanceled = new OrderCanceled(this);
+        orderCanceled.publishAfterCommit();
+
+    }
 
     public static void updateStatus(Accepted accepted){
 
